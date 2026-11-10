@@ -11,6 +11,11 @@
     "allowJs": true,
     "outDir": "./dist",
     "rootDir": "./src",
+    "types": [
+      "node",
+      "bun",
+      "express"
+    ],
     // Bundler mode
     "moduleResolution": "NodeNext",
     "verbatimModuleSyntax": true,
