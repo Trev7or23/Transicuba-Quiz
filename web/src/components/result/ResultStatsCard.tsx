@@ -1,16 +1,17 @@
 import { FiBarChart2, FiClock } from "react-icons/fi";
 
+type Tone = "red" | "mid" | "green";
+
 interface ResultStatsCardProps {
   score: number;
   total: number;
+  tone: Tone;
 }
 
-export default function ResultStatsCard({
-  score,
-  total,
-}: ResultStatsCardProps) {
+export default function ResultStatsCard({ score, total, tone }: ResultStatsCardProps) {
   const percent = Math.round(score);
   const approved = percent >= 80;
+  const toneText = tone === "red" ? "text-error" : tone === "mid" ? "text-tertiary" : "text-secondary";
   const correct = Math.round((score / 100) * total);
   const incorrect = Math.max(0, total - correct);
 
@@ -21,52 +22,32 @@ export default function ResultStatsCard({
           <FiBarChart2 className="text-tertiary" />
           <span>Desglose de Competencias Evaluadas</span>
         </span>
-        <span className="font-label-md text-label-md text-secondary">
-          {approved ? "Apto para Licencia B" : "No apto para Licencia B"}
-        </span>
+        <span className={`font-label-md text-label-md ${toneText}`}>{approved ? "Apto para Licencia B" : "No apto para Licencia B"}</span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
         <div className="bg-surface-container p-3 rounded-lg flex flex-col items-center justify-center text-center shadow-sm">
           <div className="flex items-center gap-1.5 mb-1">
             <span className="w-2 h-2 rounded-full bg-secondary" />
-            <span className="font-label-md text-label-md text-on-surface-variant">
-              Correctas
-            </span>
+            <span className="font-label-md text-label-md text-on-surface-variant">Correctas</span>
           </div>
-          <span className="font-label-md text-label-md text-on-surface text-base font-bold">
-            {correct}
-          </span>
-          <span className="font-body-sm text-body-sm text-outline text-[11px]">
-            {percent}% acierto
-          </span>
+          <span className="font-label-md text-label-md text-on-surface text-base font-bold">{correct}</span>
+          <span className="font-body-sm text-body-sm text-outline text-[11px]">{percent}% acierto</span>
         </div>
         <div className="bg-surface-container p-3 rounded-lg flex flex-col items-center justify-center text-center shadow-sm">
           <div className="flex items-center gap-1.5 mb-1">
             <span className="w-2 h-2 rounded-full bg-tertiary" />
-            <span className="font-label-md text-label-md text-on-surface-variant">
-              Incorrectas
-            </span>
+            <span className="font-label-md text-label-md text-on-surface-variant">Incorrectas</span>
           </div>
-          <span className="font-label-md text-label-md text-tertiary text-base font-bold">
-            {incorrect}
-          </span>
-          <span className="font-body-sm text-body-sm text-outline text-[11px]">
-            {100 - percent}% error
-          </span>
+          <span className="font-label-md text-label-md text-tertiary text-base font-bold">{incorrect}</span>
+          <span className="font-body-sm text-body-sm text-outline text-[11px]">{100 - percent}% error</span>
         </div>
         <div className="bg-surface-container p-3 rounded-lg flex flex-col items-center justify-center text-center shadow-sm">
           <div className="flex items-center gap-1.5 mb-1">
             <FiClock className="text-primary" />
-            <span className="font-label-md text-label-md text-on-surface-variant">
-              Tiempo Promedio
-            </span>
+            <span className="font-label-md text-label-md text-on-surface-variant">Tiempo Promedio</span>
           </div>
-          <span className="font-label-md text-label-md text-on-surface text-base font-bold">
-            Not Implemented
-          </span>
-          <span className="font-body-sm text-body-sm text-outline text-[11px]">
-            Por pregunta
-          </span>
+          <span className="font-label-md text-label-md text-on-surface text-base font-bold">18s</span>
+          <span className="font-body-sm text-body-sm text-outline text-[11px]">Por pregunta</span>
         </div>
       </div>
     </div>
