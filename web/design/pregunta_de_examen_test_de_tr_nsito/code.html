@@ -1,0 +1,203 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error":"#ffb4ab","outline":"#908fa0","surface":"#10141a","primary-fixed":"#e1e0ff","on-background":"#dfe2eb","tertiary":"#ffb95f","inverse-primary":"#494bd6","on-primary-container":"#0d0096","on-surface-variant":"#c7c4d7","tertiary-fixed":"#ffddb8","on-error-container":"#ffdad6","on-tertiary-fixed-variant":"#653e00","on-secondary-container":"#00311f","on-primary":"#1000a9","secondary-container":"#00a572","on-secondary-fixed":"#002113","background":"#10141a","surface-container-lowest":"#0a0e14","on-primary-fixed-variant":"#2f2ebe","on-surface":"#dfe2eb","secondary-fixed":"#6ffbbe","on-tertiary-fixed":"#2a1700","on-secondary-fixed-variant":"#005236","surface-variant":"#31353c","secondary-fixed-dim":"#4edea3","inverse-surface":"#dfe2eb","on-primary-fixed":"#07006c","tertiary-container":"#ca8100","surface-container":"#1c2026","primary-fixed-dim":"#c0c1ff","outline-variant":"#464554","surface-dim":"#10141a","on-tertiary":"#472a00","surface-container-highest":"#31353c","primary":"#c0c1ff","on-tertiary-container":"#3e2400","secondary":"#4edea3","surface-container-low":"#181c22","surface-container-high":"#262a31","primary-container":"#8083ff","error-container":"#93000a","surface-tint":"#c0c1ff","tertiary-fixed-dim":"#ffb95f","on-error":"#690005","surface-bright":"#353940","on-secondary":"#003824","inverse-on-surface":"#2d3137"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-tablet":"1.5rem","space-2xl":"3rem","margin-desktop":"2rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-md":"1rem","margin":"1rem","gutter":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"label-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-xl-mobile":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-lg-mobile":["Inter"],"headline-xl":["Inter"],"label-tabular":["Inter"],"headline-lg":["Inter"]},"fontSize":{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-xl-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-tabular":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen relative selection:bg-primary-container selection:text-on-primary-container"><div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(128,131,255,0.06),transparent)] z-0"></div><main class="relative z-10 w-full bg-surface min-h-[calc(100vh-4rem)] flex flex-col justify-between"><div class="flex flex-col w-full items-center justify-center py-space-xl px-margin md:px-margin-tablet">
+<!-- Interactive State Selector Bar (Allows testing: Evaluated States / Neutral State) -->
+
+<!-- Main Focus Container (~620px Assessment Module) -->
+<div class="w-full max-w-[620px] bg-surface-container-low rounded-xl shadow-2xl relative overflow-hidden flex flex-col">
+<!-- Top Visual Progress Line (30% for Question 3 of 10) -->
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="h-full bg-primary-container transition-all duration-500 ease-out" id="exam-progress-bar" style="width: 30%;"></div>
+</div>
+<!-- Inner Card Content -->
+<div class="p-space-lg sm:p-space-xl flex flex-col gap-space-lg">
+<!-- Top Meta Utility Bar -->
+<div class="flex items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+            Pregunta <span class="text-primary">3</span> de 10
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<!-- Category Pill -->
+<div class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md shadow-inner">
+<span class="material-symbols-outlined text-[15px] text-tertiary">speed</span>
+<span>Reglas de Velocidad</span>
+</div>
+<!-- Tabular Countdown Timer -->
+
+</div>
+</div>
+<!-- Legal Road Scenario Image / Diagram Enclosure -->
+<div class="w-full pt-space-xs"><h2 class="font-headline-lg text-headline-lg text-on-surface leading-snug tracking-tight">¿Cuál es la velocidad máxima permitida para automóviles en calles de zona urbana, salvo señalización específica en contrario?</h2></div>
+<!-- Options Container (Displaying Required States) -->
+<fieldset class="flex flex-col gap-space-sm m-0 p-0" id="options-group">
+<legend class="sr-only">Opciones de respuesta para velocidad urbana</legend>
+<!-- Option A: User's Incorrect Selection (State: Amber Tinted, Feedback Icon) -->
+<label class="group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-tertiary-container/15 text-tertiary shadow-sm hover:brightness-105" id="option-a-card">
+<input checked="" class="sr-only" name="transit_question" type="radio" value="A">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-tertiary/20 text-tertiary shadow-xs" id="token-a">
+              A
+            </span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-lg text-body-lg font-medium text-on-surface">
+                70 km/h
+              </span>
+<span class="font-label-md text-label-md text-tertiary font-medium" id="badge-a">
+                Incorrecta seleccionada
+              </span>
+</div>
+</div>
+<!-- Validation Feedback Icon -->
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary" id="icon-a-wrap">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</div>
+</label>
+<!-- Option B: Official Correct Answer (State: Emerald Tinted, Checkmark Icon) -->
+<label class="group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-secondary-container/20 text-secondary shadow-sm hover:brightness-105" id="option-b-card">
+<input class="sr-only" name="transit_question" type="radio" value="B">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-secondary/20 text-secondary shadow-xs" id="token-b">
+              B
+            </span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">
+                50 km/h
+              </span>
+<span class="font-label-md text-label-md text-secondary font-semibold" id="badge-b">
+                Respuesta correcta oficial
+              </span>
+</div>
+</div>
+<!-- Validation Feedback Icon -->
+<div class="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/20 flex items-center justify-center text-secondary" id="icon-b-wrap">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</label>
+<!-- Option C: Neutral / Unselected State (Default Slate Tone) -->
+<label class="group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-surface-container hover:bg-surface-container-high text-on-surface shadow-xs" id="option-c-card">
+<input class="sr-only" name="transit_question" type="radio" value="C">
+<div class="flex items-center gap-space-md min-w-0 pr-space-sm">
+<span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-surface-container-highest text-on-surface-variant shadow-xs" id="token-c">
+              C
+            </span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-lg text-body-lg text-on-surface">
+                30 km/h
+              </span>
+<span class="hidden font-label-md text-label-md text-on-surface-variant" id="badge-c">
+                Opción estándar
+              </span>
+</div>
+</div>
+<!-- Neutral Token Radio Indicator -->
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:bg-surface-bright transition-colors" id="icon-c-wrap">
+<span class="w-2 h-2 rounded-full bg-transparent group-hover:bg-on-surface-variant/40"></span>
+</div>
+</label>
+</fieldset>
+<!-- Legal Explanation Drawer / Remedial Box -->
+
+<!-- Action Footer Tray -->
+<div class="flex items-center justify-between gap-space-md pt-space-xs">
+<!-- Secondary / Previous Button -->
+<button class="px-space-md py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs transition-colors shadow-sm focus:outline-none focus:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Anterior</span>
+</button>
+<!-- Right Side Utility & Primary Next -->
+<div class="flex items-center gap-space-sm">
+
+<button class="px-space-lg py-3 rounded-lg bg-primary-container hover:bg-inverse-primary text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs transition-all shadow-md hover:shadow-lg focus:outline-none active:scale-[0.98]" type="button">
+<span>Siguiente Pregunta</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Informative Breadcrumb Info -->
+
+</div>
+<script>
+  (function initQuestionViewer() {
+    const btnFeedback = document.getElementById('view-feedback-btn');
+    const btnIdle = document.getElementById('view-idle-btn');
+    const optionA = document.getElementById('option-a-card');
+    const optionB = document.getElementById('option-b-card');
+    const optionC = document.getElementById('option-c-card');
+    const badgeA = document.getElementById('badge-a');
+    const badgeB = document.getElementById('badge-b');
+    const iconAWrap = document.getElementById('icon-a-wrap');
+    const iconBWrap = document.getElementById('icon-b-wrap');
+    const tokenA = document.getElementById('token-a');
+    const tokenB = document.getElementById('token-b');
+    const legalDrawer = document.getElementById('legal-drawer');
+
+    function setFeedbackMode() {
+      btnFeedback.className = 'px-space-sm py-0.5 rounded font-label-md text-label-md transition-all bg-surface-container-high text-on-surface font-semibold shadow-xs';
+      btnIdle.className = 'px-space-sm py-0.5 rounded font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface';
+      
+      // Option A: Incorrect evaluated
+      optionA.className = 'group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-tertiary-container/15 text-tertiary shadow-sm hover:brightness-105';
+      tokenA.className = 'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-tertiary/20 text-tertiary shadow-xs';
+      badgeA.classList.remove('hidden');
+      iconAWrap.innerHTML = '<span class="material-symbols-outlined text-[18px]">close</span>';
+      iconAWrap.className = 'flex-shrink-0 w-7 h-7 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary';
+
+      // Option B: Correct evaluated
+      optionB.className = 'group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-secondary-container/20 text-secondary shadow-sm hover:brightness-105';
+      tokenB.className = 'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-secondary/20 text-secondary shadow-xs';
+      badgeB.classList.remove('hidden');
+      iconBWrap.innerHTML = '<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: \'FILL\' 1;">check</span>';
+      iconBWrap.className = 'flex-shrink-0 w-7 h-7 rounded-full bg-secondary/20 flex items-center justify-center text-secondary';
+
+      legalDrawer.classList.remove('hidden');
+    }
+
+    function setIdleMode() {
+      btnIdle.className = 'px-space-sm py-0.5 rounded font-label-md text-label-md transition-all bg-surface-container-high text-on-surface font-semibold shadow-xs';
+      btnFeedback.className = 'px-space-sm py-0.5 rounded font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface';
+
+      // Reset options to neutral un-evaluated state
+      [optionA, optionB].forEach((card, idx) => {
+        card.className = 'group relative flex items-center justify-between p-space-md rounded-lg cursor-pointer transition-all duration-200 bg-surface-container hover:bg-surface-container-high text-on-surface shadow-xs';
+      });
+
+      tokenA.className = 'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-surface-container-highest text-on-surface-variant shadow-xs';
+      tokenB.className = 'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label-lg text-label-lg font-bold bg-surface-container-highest text-on-surface-variant shadow-xs';
+      
+      badgeA.classList.add('hidden');
+      badgeB.classList.add('hidden');
+
+      iconAWrap.className = 'flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant';
+      iconAWrap.innerHTML = '<span class="w-2 h-2 rounded-full bg-transparent group-hover:bg-on-surface-variant/40"></span>';
+
+      iconBWrap.className = 'flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant';
+      iconBWrap.innerHTML = '<span class="w-2 h-2 rounded-full bg-transparent group-hover:bg-on-surface-variant/40"></span>';
+
+      legalDrawer.classList.add('hidden');
+    }
+
+    if (btnFeedback && btnIdle) {
+      btnFeedback.addEventListener('click', setFeedbackMode);
+      btnIdle.addEventListener('click', setIdleMode);
+    }
+  })();
+</script><footer class="fixed bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-auto"><div class="inline-flex items-center px-5 py-2.5 rounded-full bg-surface-container-low/80 backdrop-blur-md border border-white/10 shadow-lg"><p class="font-body-sm text-body-sm text-on-surface-variant text-center whitespace-nowrap">© 2026 made by trev7or23</p></div></footer></main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
