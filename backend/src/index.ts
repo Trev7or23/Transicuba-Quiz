@@ -1,8 +1,11 @@
 import express, { type Express, type Response } from "express";
-import router from "./routes/router";
-import { corsMiddleware } from "./middlewares/cors";
+import router from "./routes/router.js";
+import { corsMiddleware } from "./middlewares/cors.js";
+import "dotenv/config";
 
 const app: Express = express();
+
+const port = process.env.PORT || 3000;
 
 // Middlewares
 app.use(corsMiddleware());
@@ -17,6 +20,6 @@ app.get("/", (_, res: Response) => {
 });
 
 app.use("/", router);
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server Started");
 });

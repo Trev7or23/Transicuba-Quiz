@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { handleLevel } from "../controllers/endpoints";
+import { handleLevel } from "../controllers/endpoints.js";
 
 const router = Router();
 

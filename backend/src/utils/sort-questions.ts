@@ -1,5 +1,5 @@
 import questions from "../../data/records.json" with { type: "json" };
-import type { Question } from "../types";
+import type { Question } from "../types.js";
 
 export function getRandomQuestions(qty: number): Question[] {
   return questions.records

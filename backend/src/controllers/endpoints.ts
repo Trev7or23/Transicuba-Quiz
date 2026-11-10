@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { getRandomQuestions } from "../utils/sort-questions";
+import { getRandomQuestions } from "../utils/sort-questions.js";
 
 type LevelParams = { level: string };
 

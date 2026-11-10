@@ -1,5 +1,8 @@
 import cors from "cors";
 
 export function corsMiddleware() {
-  return cors();
+  const corsOrigin = process.env.CORS_ORIGIN ?? "*";
+  return cors({
+    origin: corsOrigin,
+  });
 }
