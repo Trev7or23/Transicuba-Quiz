@@ -25,7 +25,7 @@ const difficulties: Difficulty[] = [
     iconBackgroundClassName: "bg-surface-container-highest",
     iconColorClassName: "text-primary",
     label: "Fácil",
-    description: "15 preguntas • Prioridad de paso y señales reglamentarias básicas.",
+    description: "20 preguntas •",
   },
   {
     to: "/medium",
@@ -34,7 +34,7 @@ const difficulties: Difficulty[] = [
     iconBackgroundClassName: "bg-primary-container/20",
     iconColorClassName: "text-primary",
     label: "Medio",
-    description: "30 preguntas • Velocidades máximas, rotondas y alcoholemia.",
+    description: "40 preguntas •",
     badge: "Recomendado",
   },
   {
@@ -44,7 +44,7 @@ const difficulties: Difficulty[] = [
     iconBackgroundClassName: "bg-surface-container-highest",
     iconColorClassName: "text-tertiary",
     label: "Difícil",
-    description: "45 preguntas • Casos complejos de adelantamiento, sanciones y mecánica.",
+    description: "100 preguntas •",
   },
 ];
 
