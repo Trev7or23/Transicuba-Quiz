@@ -1,27 +1,24 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
 import ResultBadgeIcon from "@/components/result/ResultBadgeIcon";
 import ResultScore from "@/components/result/ResultScore";
 import ResultCopy from "@/components/result/ResultCopy";
 import ResultStatsCard from "@/components/result/ResultStatsCard";
 import ResultActions from "@/components/result/ResultActions";
-import ResultReviewDrawer from "@/components/result/ResultReviewDrawer";
 import { useQuestionsStore } from "@/stores/questions";
 
 export default function Result() {
   const { result } = useQuestionsStore();
   const navigate = useNavigate();
-  const [isReviewOpen, setIsReviewOpen] = useState(false);
 
   const score = result?.score ?? 0;
   const total = result?.total ?? 0;
+  const percent = Math.round(score);
+  const approved = percent >= 80;
 
   const startQuiz = () => {
     useQuestionsStore.getState().startQuiz();
     navigate("/quiz");
   };
-
-  const closeReview = () => setIsReviewOpen(false);
 
   return (
     <div className="relative w-full py-8 md:py-12 px-4 md:px-6 flex items-center justify-center">
@@ -30,18 +27,12 @@ export default function Result() {
 
       <div className="relative w-full max-w-[620px] bg-surface-container-low rounded-xl shadow-2xl p-6 sm:p-10 flex flex-col items-center text-center overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-secondary to-transparent" />
-        <ResultBadgeIcon />
+        <ResultBadgeIcon percent={percent} />
         <ResultScore score={score} total={total} />
-        <ResultCopy />
+        <ResultCopy approved={approved} />
         <ResultStatsCard score={score} total={total} />
-        <ResultActions
-          onRepeat={startQuiz}
-          onHome={() => navigate("/home")}
-          onReview={() => setIsReviewOpen(true)}
-        />
+        <ResultActions onRepeat={startQuiz} onHome={() => navigate("/home")} />
       </div>
-
-      <ResultReviewDrawer open={isReviewOpen} onClose={closeReview} />
     </div>
   );
 }

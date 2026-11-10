@@ -1,12 +1,14 @@
-import { FiArrowRight, FiHome, FiRotateCcw } from "react-icons/fi";
+import { FiHome, FiRotateCcw } from "react-icons/fi";
 
 interface ResultActionsProps {
   onRepeat: () => void;
   onHome: () => void;
-  onReview: () => void;
 }
 
-export default function ResultActions({ onRepeat, onHome, onReview }: ResultActionsProps) {
+export default function ResultActions({
+  onRepeat,
+  onHome,
+}: ResultActionsProps) {
   return (
     <div className="w-full flex flex-col gap-3">
       <button
@@ -25,17 +27,6 @@ export default function ResultActions({ onRepeat, onHome, onReview }: ResultActi
         <FiHome size={20} />
         <span>Volver al inicio</span>
       </button>
-      <a
-        href="#revision-detallada"
-        className="mt-2 text-primary hover:text-primary-fixed-dim font-label-md text-label-md transition-colors flex items-center justify-center gap-1 group py-1"
-        onClick={(e) => {
-          e.preventDefault();
-          onReview();
-        }}
-      >
-        <span>Revisar preguntas y respuestas explicadas</span>
-        <FiArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-      </a>
     </div>
   );
 }
