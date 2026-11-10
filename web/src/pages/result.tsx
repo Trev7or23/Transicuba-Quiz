@@ -5,10 +5,14 @@ import ResultCopy from "@/components/result/ResultCopy";
 import ResultStatsCard from "@/components/result/ResultStatsCard";
 import ResultActions from "@/components/result/ResultActions";
 import { useQuestionsStore } from "@/stores/questions";
+import { useQuiz } from "@/hooks/useQuiz";
+import { useEffect } from "react";
 
 export default function Result() {
   const { result } = useQuestionsStore();
   const navigate = useNavigate();
+
+  const { confettiCongrats } = useQuiz();
 
   const score = result?.score ?? 0;
   const total = result?.total ?? 0;
@@ -16,6 +20,14 @@ export default function Result() {
   const approved = percent >= 80;
   const tone: "red" | "mid" | "green" =
     percent < 26 ? "red" : percent >= 80 ? "green" : "mid";
+
+  useEffect(() => {
+
+    if (approved) {
+      const confetti = confettiCongrats();
+      return () => clearInterval(confetti);
+    }
+  }, [confettiCongrats, approved]);
 
   return (
     <div className="relative w-full py-8 md:py-12 px-4 md:px-6 flex items-center justify-center">

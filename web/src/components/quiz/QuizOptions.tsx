@@ -1,6 +1,8 @@
 import { FiCheckCircle, FiX } from "react-icons/fi";
 import type { Question } from "@/types";
 
+import confetti from "canvas-confetti";
+
 interface QuizOptionsProps {
   question: Question;
   selected?: number;
@@ -56,7 +58,10 @@ export default function QuizOptions({
             key={index}
             type="button"
             disabled={answered}
-            onClick={() => onSelectAnswer(index)}
+            onClick={() => {
+              if (isCorrect) confetti();
+              onSelectAnswer(index);
+            }}
             className={`group relative w-full flex items-center justify-between p-4 rounded-lg transition-all duration-200 text-left focus:outline-none focus:bg-surface-container-high enabled:cursor-pointer ${optionClass}`}
           >
             <div className="flex items-center gap-4 min-w-0 pr-2">

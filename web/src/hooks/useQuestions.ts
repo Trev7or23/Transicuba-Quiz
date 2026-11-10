@@ -11,4 +11,3 @@ export function useQuestions(difficulty: string) {
   return { data, error };
 }
 
-export function useQuiz() { }

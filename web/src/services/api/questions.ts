@@ -29,7 +29,7 @@ export const questionsOptions = (difficulty: string) => {
   return queryOptions({
     queryKey: ["questions", difficulty],
     queryFn: () => getQuestions(difficulty),
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60,
   });
 };
 

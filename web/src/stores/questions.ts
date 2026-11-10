@@ -1,6 +1,5 @@
 import type { Question } from "@/types";
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 const SESSION_TTL_MS = 10 * 60 * 1000;
 
@@ -22,85 +21,84 @@ interface State {
   finishQuiz: (questions: Question[]) => void;
 }
 
-export const useQuestionsStore = create<State>()(
-  persist(
-    (set, get) => ({
+export const useQuestionsStore = create<State>((set, get) => ({
+  currentQuestion: 0,
+  result: null,
+  selectedAnswers: {},
+  startedAt: Date.now(),
+
+  goNextQuestion: (total, questionId) => {
+    const { currentQuestion, selectedAnswers, startedAt } = get();
+
+    if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
+      set({
+        currentQuestion: 0,
+        selectedAnswers: {},
+        startedAt: Date.now(),
+      });
+      return;
+    }
+
+    if (selectedAnswers[questionId] === undefined) return;
+
+    const nextQuestion = currentQuestion + 1;
+
+    if (nextQuestion < total) set({ currentQuestion: nextQuestion });
+  },
+  goPrevQuestion: () => {
+    const { currentQuestion, startedAt } = get();
+
+    if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
+      set({
+        currentQuestion: 0,
+        selectedAnswers: {},
+        startedAt: Date.now(),
+      });
+      return;
+    }
+
+    const prevQuestion = currentQuestion - 1;
+
+    if (!(prevQuestion < 0)) set({ currentQuestion: prevQuestion });
+  },
+  goHome: () =>
+    set({ selectedAnswers: {}, currentQuestion: 0, startedAt: Date.now() }),
+  selectAnswer: (questionId, answer) => {
+    const { startedAt } = get();
+
+    if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
+      set({
+        currentQuestion: 0,
+        selectedAnswers: {},
+        startedAt: Date.now(),
+      });
+      return;
+    }
+
+    set((state) => ({
+      selectedAnswers: { ...state.selectedAnswers, [questionId]: answer },
+    }));
+  },
+  startQuiz: () => {
+    set({
       currentQuestion: 0,
-      result: null,
       selectedAnswers: {},
       startedAt: Date.now(),
+    });
+  },
+  finishQuiz(questions) {
+    const total = questions.length;
+    if (total === 0) return;
+    const correctAnswers = questions.filter(
+      (question) => question.isCorrectUserAnswer,
+    ).length;
+    const score = (correctAnswers / total) * 100;
 
-      goNextQuestion: (total, questionId) => {
-        const { currentQuestion, selectedAnswers, startedAt } = get();
-
-        if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
-          set({ currentQuestion: 0, selectedAnswers: {}, startedAt: Date.now() });
-          return;
-        }
-
-        if (selectedAnswers[questionId] === undefined) return;
-
-        const nextQuestion = currentQuestion + 1;
-
-        if (nextQuestion < total) set({ currentQuestion: nextQuestion });
+    set({
+      result: {
+        total,
+        score,
       },
-      goPrevQuestion: () => {
-        const { currentQuestion, startedAt } = get();
-
-        if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
-          set({ currentQuestion: 0, selectedAnswers: {}, startedAt: Date.now() });
-          return;
-        }
-
-        const prevQuestion = currentQuestion - 1;
-
-        if (!(prevQuestion < 0)) set({ currentQuestion: prevQuestion });
-      },
-      goHome: () =>
-        set({ selectedAnswers: {}, currentQuestion: 0, startedAt: Date.now() }),
-      selectAnswer: (questionId, answer) => {
-        const { startedAt } = get();
-
-        if (startedAt && Date.now() - startedAt > SESSION_TTL_MS) {
-          set({ currentQuestion: 0, selectedAnswers: {}, startedAt: Date.now() });
-          return;
-        }
-
-        set((state) => ({
-          selectedAnswers: { ...state.selectedAnswers, [questionId]: answer },
-        }));
-      },
-      startQuiz: () => {
-        set({
-          currentQuestion: 0,
-          selectedAnswers: {},
-          startedAt: Date.now(),
-        });
-      },
-      finishQuiz(questions) {
-        const total = questions.length;
-        if (total === 0) return;
-        const correctAnswers = questions.filter(
-          (question) => question.isCorrectUserAnswer,
-        ).length;
-        const score = (correctAnswers / total) * 100;
-
-        set({
-          result: {
-            total,
-            score,
-          },
-        });
-      },
-    }),
-    {
-      name: "quiz-store",
-      partialize: (state) => ({
-        currentQuestion: state.currentQuestion,
-        selectedAnswers: state.selectedAnswers,
-        result: state.result,
-        startedAt: state.startedAt,
-      }),
-    },
-  ),
-);
+    });
+  },
+}));

@@ -38,7 +38,7 @@ export default function Quiz() {
           ...q,
           isCorrectUserAnswer:
             selectedAnswers[q.id] !== undefined &&
-            selectedAnswers[q.id] === q.correct,
+            selectedAnswers[q.id] + 1 === q.correct,
         })),
       );
       navigate("/result");
