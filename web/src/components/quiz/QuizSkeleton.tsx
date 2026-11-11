@@ -1,6 +1,6 @@
 export default function QuizSkeleton() {
   return (
-    <div className="w-full max-w-[620px] flex flex-col gap-6 justify-center mx-auto">
+    <div className="w-full max-w-[620px] flex flex-col gap-6 justify-center mx-auto min-h-[540px]">
       <div className="flex items-center justify-between px-1 text-on-surface-variant">
         <div className="flex items-center gap-1">
           <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
@@ -29,7 +29,7 @@ export default function QuizSkeleton() {
             </div>
           </div>
 
-          <div className="w-full h-44 rounded-lg bg-surface-container-lowest relative overflow-hidden flex flex-col items-center justify-center">
+          <div className="w-full h-32 rounded-lg bg-surface-container-lowest relative overflow-hidden flex flex-col items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-surface-variant/20 to-transparent animate-pulse" />
             <div className="flex flex-col items-center gap-1 opacity-40">
               <div className="w-8 h-8 rounded-full bg-surface-container-highest animate-pulse" />

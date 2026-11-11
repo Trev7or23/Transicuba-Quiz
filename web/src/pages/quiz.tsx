@@ -49,26 +49,26 @@ export default function Quiz() {
   };
 
   useEffect(() => {
-    const eventHandler = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       const { goPrevQuestion, goNextQuestion } = useQuestionsStore.getState();
 
       if (e.key === "ArrowLeft") goPrevQuestion();
       if (e.key === "ArrowRight") goNextQuestion(total, question.id);
     };
 
-    window.addEventListener("keydown", eventHandler);
+    window.addEventListener("keydown", onKeyDown);
 
-    return () => window.removeEventListener("keydown", eventHandler);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [total, question.id]);
 
   if (error) return <div>{error.message}</div>;
   if (!questions?.length) return <div>No hay preguntas disponibles</div>;
 
   return (
-    <div className="min-h-dvh w-full flex items-center justify-center px-4 md:px-6 py-8 md:py-12">
-      <div className="w-full max-w-[620px] bg-surface-container-low rounded-xl shadow-2xl relative overflow-hidden flex flex-col">
+    <div className="min-h-dvh w-full flex items-center justify-center px-4 md:px-6 pt-1">
+      <div className="w-full max-w-[620px] bg-surface-container-low rounded-xl shadow-2xl relative overflow-hidden flex flex-col min-h-[540px]">
         <QuizProgressBar value={progress} />
-        <div className="p-6 sm:p-8 flex flex-col gap-6">
+        <div className="p-6 sm:p-8 flex flex-col gap-6 flex-1">
           <QuizQuestionHeader
             number={currentQuestion + 1}
             total={questions.length}

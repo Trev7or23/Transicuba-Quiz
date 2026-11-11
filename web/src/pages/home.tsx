@@ -63,8 +63,15 @@ export default function Home() {
       </div>
       <footer className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
         <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-surface-container-low/80 backdrop-blur-md border border-white/10 shadow-lg">
-          <p className="text-body-sm text-on-surface-variant font-medium tracking-wide">
-            © 2026 made by trev7or23
+          <p className="text-md text-on-surface-variant font-medium tracking-wide">
+            © 2026 made by{" "}
+            <a
+              href="https://github.com/trev7or23"
+              target="_blank"
+              className="text-[#09f] font-bold"
+            >
+              trev7or23
+            </a>
           </p>
         </div>
       </footer>

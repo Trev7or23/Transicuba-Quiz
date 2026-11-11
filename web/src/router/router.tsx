@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/result",
     element: (
-      <Suspense fallback={<p>loading...</p>}>
+      <Suspense>
         <Result />
       </Suspense>
     ),
